@@ -1,10 +1,17 @@
 class LinksController < ApplicationController
+
+	def show
+		@link = Link.find(params[:id])
+	end
+
 	def new
 		@link = Link.new
 	end
+
     def index
     @links = Link.all
     end
+
     def create
         @link = Link.new(link_params)
          redirect_to(links_url)
@@ -34,13 +41,8 @@ class LinksController < ApplicationController
     redirect_to links_url    
     end
 
-    def show
-    	# should redirect to the url paramtre of the respective link
-      	redirect_to links_url
+	def link_params
+      params.require(:link).permit(:title, :url)
     end
 
-
- def link_params
-    params.require(:link).permit(:title, :url)
-  end  
 end
