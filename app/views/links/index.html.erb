@@ -1,4 +1,31 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
-<%= link_to 'New Link', create_link_path %>
+<table id="links" class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>URL</th>
+      <th colspan="3">Actions</th>         
+    </tr>
+  </thead>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td><%= link.id %></td>
+        <td><%= link.title %></td>
+        <td><%= link.url %></td> 
+        <td>
+          <%= link_to "Show", links_path, class: "btn btn-primary btn-sm" %>
+        </td>  
+        <td>
+          <%= link_to "Edit", links_url, method: :get, class: "btn btn-warning btn-sm" %>
+        </td>       
+        <td>
+          <%= link_to "Delete", links_url, class: "btn btn-danger btn-sm"  %>          
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Link', create_link_path, class: "btn btn-success"  %>

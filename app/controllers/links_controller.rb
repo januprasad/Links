@@ -6,4 +6,9 @@ class LinksController < ApplicationController
 		@link = Link.new
 		 
 	end
+
+ def index
+    @links = Link.all
+  end
+
 end
