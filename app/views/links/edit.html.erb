@@ -1,0 +1,21 @@
+  <%= form_for @link, html: { multipart: true } do |f| %>
+    <br>
+    <br>
+         <div class="row">
+         <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+         <label> Enter New Filename </label>
+    <br>
+    <br>
+    <%= f.text_field :title %>
+    <br>
+    <div>
+        
+    <br>
+    <%= f.text_field :url %>
+    <br>
+
+    </div>
+    <br>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>
