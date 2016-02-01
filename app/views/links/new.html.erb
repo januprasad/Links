@@ -1,14 +1,11 @@
-<%=form_for @link do |f| %>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :url %><br>
-    <%= f.text_field :url %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="panel panel-info">
+<div class="panel-heading">Create New URL</div>
+  <div class="panel-body">
+<%= simple_form_for @link ,wrapper: :horizontal_form do |f| %>
+  <%= f.input :title%>
+  <%= f.input :url %>
+  <%= f.button :submit , class: "my-button"%>
 <% end %>
+</div>
+</div>

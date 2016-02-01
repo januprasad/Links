@@ -15,16 +15,17 @@
         <td><%= link.title %></td>
         <td><%= link.url %></td> 
         <td>
-          <%= link_to "Show", link_path(link.id), class: "btn btn-primary btn-sm" %>
+          <%= link_to "Show", links_path, class: "btn btn-primary btn-sm" %>
         </td>  
         <td>
-          <%= link_to "Edit", edit_link_path(link.id), method: :get, class: "btn btn-warning btn-sm" %>
+          <%= link_to "Edit", links_url, method: :get, class: "btn btn-warning btn-sm" %>
         </td>       
         <td>
-          <%= link_to "Delete", link_path(link.id), method: :delete,  data: { confirm: 'Are you sure?' },class: "btn btn-danger btn-sm"  %>          
+          <%= link_to "Delete", links_url, class: "btn btn-danger btn-sm"  %>          
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 <%= link_to 'New Link', create_link_path, class: "btn btn-success"  %>

@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Links</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div>
+
+    <div class='alert alert-info fade in' data-alert='alert'>
+    <div class="row">
+  <div class="col-xs-13 col-sm-7 col-sm-offset-10">
+  
       <% if current_user %>
         Signed in as <strong><%= current_user.name %></strong>!
         <%= link_to "Sign out", signout_path, id: "sign_out" %>
       <% else %>
         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
       <% end %>
+   
     </div>
-
+    </div>
+	</div>
+    <div class="container master-container">
+    
     <div>
       <%= bootstrap_flash %>
     	<%= yield %>
     </div>
     
+    </div>
 </body>
 </html>

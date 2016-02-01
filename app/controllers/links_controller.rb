@@ -14,6 +14,7 @@ class LinksController < ApplicationController
 
     def create
         @link = Link.new(link_params)
+
       #  binding.pry
         begin
         	 @link.save!
@@ -23,6 +24,8 @@ class LinksController < ApplicationController
         	render :new
         	return
         end
+
+         @link.save
          redirect_to(links_url)
     end
 
