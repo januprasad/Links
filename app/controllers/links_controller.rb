@@ -14,6 +14,15 @@ class LinksController < ApplicationController
 
     def create
         @link = Link.new(link_params)
+      #  binding.pry
+        begin
+        	 @link.save!
+        rescue Exception => e
+        	#flash[:danger] = "#{e.message}"
+        	flash.now[:alert] = "#{e.message}"
+        	render :new
+        	return
+        end
          redirect_to(links_url)
     end
 
@@ -27,6 +36,13 @@ class LinksController < ApplicationController
 
     @link.title = temp.title
     @link.url = temp.url
+    begin
+    	@link.save!
+    rescue Exception => e
+    	    flash.now[:alert] = "#{e.message}"
+        	render :edit
+    	 return
+    end
     @link.save    
     temp.destroy
 
